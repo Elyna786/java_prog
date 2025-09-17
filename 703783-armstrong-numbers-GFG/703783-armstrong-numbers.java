@@ -16,6 +16,7 @@ class Solution {
                 return false;
             }
             
+        //easy one
         // int sum=0;
         // int num=n;
         
