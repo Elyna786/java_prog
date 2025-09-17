@@ -2,16 +2,30 @@
 class Solution {
     static boolean armstrongNumber(int n) {
         // code here
-        int sum=0;
-        int num=n;
-        
+        int ans =n;
+        int res =0;
         while(n>0){
-            int rem=n%10;
+            int rem = n%10;
             int cub=rem*rem*rem;
-            sum+=cub;
-            n/=10;
+            res+=cub;
+            n=n/10;
         }
+        if(ans==res) {
+                return true;
+            } else{
+                return false;
+            }
+            
+        // int sum=0;
+        // int num=n;
         
-        return (num==sum);
+        // while(n>0){
+        //     int rem=n%10;
+        //     int cub=rem*rem*rem;
+        //     sum+=cub;
+        //     n/=10;
+        // }
+        
+        // return (num==sum);
     }
 }
