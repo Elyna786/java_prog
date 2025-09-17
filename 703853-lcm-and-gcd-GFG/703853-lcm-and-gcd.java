@@ -7,13 +7,20 @@ class Solution {
     
     }
 
-    public static int computeGcd(int a, int b){
+    // public static int computeGcd(int a, int b){
        
-            while(b!=0){
-                int temp=b;
-                b=a%b;
-                a=temp;
-            }
+    //         while(b!=0){
+    //             int temp=b;
+    //             b=a%b;
+    //             a=temp;
+    //         }
+    //         return a;
+    // }
+    
+    //
+    private static int computeGcd(int a, int b) {
+        if (b == 0)
             return a;
+            return computeGcd(b, a % b);
     }
 }
