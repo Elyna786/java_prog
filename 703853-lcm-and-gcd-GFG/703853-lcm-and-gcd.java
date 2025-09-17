@@ -7,6 +7,7 @@ class Solution {
     
     }
 
+    //Euclidean approach for gcd
     // public static int computeGcd(int a, int b){
        
     //         while(b!=0){
@@ -17,7 +18,7 @@ class Solution {
     //         return a;
     // }
     
-    //recursive approach for gcd
+    //recursive approach for gcd, Recursive Euclidean algorithm
     private static int computeGcd(int a, int b) {
         if (b == 0)
             return a;
