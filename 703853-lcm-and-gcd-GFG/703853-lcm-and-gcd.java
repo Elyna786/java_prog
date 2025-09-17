@@ -17,7 +17,7 @@ class Solution {
     //         return a;
     // }
     
-    //
+    //recursive approach for gcd
     private static int computeGcd(int a, int b) {
         if (b == 0)
             return a;
