@@ -3,32 +3,34 @@
 class Solution {
     static int largestPrimeFactor(int n) {
         
-        if (n <= 1) return -1;
+//         if (n <= 1) return -1;
 
-			// Remove all 2s
-			while ((n & 1) == 0) {
-				n >>= 1;
-			}
+// 			// Remove all 2s
+// 			while ((n & 1) == 0) {
+// 				n >>= 1;
+// 			}
 
-        int factor = 3;
-        int lastFactor = 2;
+//         int factor = 3;
+//         int lastFactor = 2;
 
-        while (factor * factor <= n) {
-            if (n % factor == 0) {
-                n /= factor;
-                lastFactor = factor;
-                while (n % factor == 0) {
-                    n /= factor;
-                }
-            }
-            factor += 2;
-        }
+//         while (factor * factor <= n) {
+//             if (n % factor == 0) {
+//                 n /= factor;
+//                 lastFactor = factor;
+//                 while (n % factor == 0) {
+//                     n /= factor;
+//                 }
+//             }
+//             factor += 2;
+//         }
 
-        if (n > 1) {
-            return n;
-        }
+//         if (n > 1) {
+//             return n;
+//         }
 
-        return lastFactor;
+//         return lastFactor;
+        
+        //next code
         
         // if (n<=1) return 0;
         
@@ -94,6 +96,32 @@ class Solution {
     //         i += 2;
     //     }
     //    return true;
+    
+    //optimized solution
+    
+        int maxPrime = -1;
+        
+        //remove all even factors
+        while(n%2 == 0){
+            maxPrime = 2;
+            n /=2;
+        }
+        
+        //check odd factors
+        for(int i = 3; i*i<=n; i +=2){
+            while(n%i == 0){
+                maxPrime = i;
+                n /=i;
+            }
+        }
+        
+        //check even if n>2, then n itself is Prime
+        if(n>2){
+            maxPrime = n;
+        }
+        
+        return maxPrime;
+    
    
     }
 }
