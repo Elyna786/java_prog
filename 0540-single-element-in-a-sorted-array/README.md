@@ -19,3 +19,10 @@
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+Aspect	Your Code
+Approach	Binary search with parity check
+DSA Concepts	Binary search, Array indexing, Divide & Conquer
+Time Complexity	O(log n)
+Space Complexity	O(1)
+Better approach?	No, this is optimal for O(log n) requirement
