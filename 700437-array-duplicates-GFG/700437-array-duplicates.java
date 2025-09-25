@@ -7,7 +7,7 @@ class Solution {
             int x=arr[i];
             int index = Math.abs(x)-1;
             
-            if(arr[index]<0){
+            if(arr[index] < 0){
                 mark.add(Math.abs(x));
             } else {
                 arr[index] = -arr[index];
