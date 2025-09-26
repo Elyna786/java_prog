@@ -5,9 +5,9 @@ class Solution {
             int mid=st+(end-st)/2;
             if((mid & 1) == 0){
                 if(nums[mid]==nums[mid+1]){
-                    st=mid+2;
+                    st = mid+2;
                 } else {
-                    end=mid;
+                    end = mid;
                 }
             } else {
                 if(nums[mid]==nums[mid-1]){
