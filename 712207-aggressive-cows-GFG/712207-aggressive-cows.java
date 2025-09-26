@@ -1,36 +1,39 @@
 class Solution {
     public int aggressiveCows(int[] stalls, int k) {
         
-        Arrays.sort(stalls);
-        
-        int st=1;
-        int end=stalls[stalls.length-1] - stalls[0];
-        int result=0;
-        
-        while(st<=end){
-            int mid=st+(end-st)/2;
-            
-            if(cowplace(stalls, k, mid)){
-                result= mid;
-                st=mid+1;
+        Arrays.sort(stalls);  // Step 1: Sort the stalls
+
+        int low = 1;  // Minimum possible distance
+        int high = stalls[stalls.length - 1] - stalls[0];  // Max possible distance
+        int result = 0;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (canPlaceCows(stalls, k, mid)) {
+                result = mid;      // Try for a bigger minimum distance
+                low = mid + 1;
             } else {
-                end=mid-1;
+                high = mid - 1;    // Try for a smaller distance
             }
         }
+
         return result;
     }
-    
-    public boolean cowplace(int[] stalls, int k, int mid){
-        int count=1;
-        int lastpos = stalls[0];
-        
-        for(int i=0;i<stalls.length;i++){
-            if(stalls[i]-lastpos >= mid){
+
+    // Helper method to check if we can place cows with at least 'minDist' between them
+    private boolean canPlaceCows(int[] stalls, int k, int minDist) {
+        int count = 1;  // Place the first cow in the first stall
+        int lastPos = stalls[0];
+
+        for (int i = 1; i < stalls.length; i++) {
+            if (stalls[i] - lastPos >= minDist) {
                 count++;
-                lastpos = stalls[i];
-                if (count>=k) return true;
-            } 
+                lastPos = stalls[i];
+                if (count >= k) return true;
+            }
         }
+
         return false;
         
     }
